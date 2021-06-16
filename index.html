@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/css/reset.css">
+    <link rel="stylesheet" href="public/css/index.css">
+    <title>計算機</title>
+</head>
+<body>
+    <main>
+        <div id="app">
+            <h1 class="title">週報計算機</h1>
+            <div id="budget">
+                    <h3>達成率</h3>
+                    <ul>
+                        <li>現在の売上合計<input type="number" ref="earningsMoney" pattern="\d*"> 円</li>
+                        <li>週予算<input type="number" ref="weekMoney" pattern="\d*">円</li>
+                        <button v-on:click="rate()">計算</button>
+                        <p class="week-budget">週達成率{{ Result }}％</p>
+                    </ul>
+            </div>
+            <div id="purpose">
+                    <h3>目的別</h3>
+                    <ul>
+                        <li>私物 ¥<input type="number" ref="p1" pattern="\d*"></li>
+                        <li>ギフト ¥<input type="number" ref="p2" pattern="\d*"></li>
+                        <li>ペア ¥<input type="number" ref="p3" pattern="\d*"><li>
+                        <button v-on:click="purposeSum()">計算</button>
+                        <p class="total-money">合計金額 ¥{{ purposeResult }}</p>
+                    </ul>    
+            </div>
+            <div id="items">
+                <table>
+                    <h3>アイテム別</h3>
+                    <tr>
+                    <td>ピアス ¥<input type="number" ref="i1" pattern="\d*"></td>
+                    <td>リング ¥<input type="number" ref="i2" pattern="\d*"></td>
+                    </tr>
+                    <tr>
+                    <td>ネックレス ¥<input type="number" ref="i3" pattern="\d*"></td>
+                    <td>ブレス ¥<input type="number" ref="i4" pattern="\d*"></td>
+                    </tr>
+                    <tr>
+                    <td>SV ¥<input type="number" ref="i5" pattern="\d*"></td>
+                    <td>セールリング ¥<input type="number" ref="i6" pattern="\d*"></td>
+                    </tr>
+                    <tr>
+                    <td><button v-on:click="itemSum()">計算</button></td>
+                    <td>合計金額 ¥{{ itemResult }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
